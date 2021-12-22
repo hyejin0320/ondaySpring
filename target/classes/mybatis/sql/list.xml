@@ -12,7 +12,8 @@
         <result column="userId" property="USER_ID"/>
         <result column="userName" property="USER_NM"/>
         <result column="userPassword" property="USER_PWD"/>
-        <result column="loginFailed" property="LOGIN_FAILED_NM"/>
+        <result column="loginFailed" property="LOGIN_FAILED_NUM"/>
+        <result column="firstMenuUrl" property="FIRST_MENU_URL"/>
     </resultMap>
     
     <select id="getUser" parameterType="com.ondayspring.list.UserBasicVO" resultMap="user">

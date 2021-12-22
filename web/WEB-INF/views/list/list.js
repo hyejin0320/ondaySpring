@@ -64,12 +64,11 @@ function login(userId, userPw){
         url:NEXT_URL_NOT_WEB+"/login/login",
         data:JSON.stringify(json),
         contentType:"application/json; charset=utf-8",
-        dataType:"json",
         success: function(result){
             console.log(result);
         },
         complete: function(result, xhr){
-            console.log(result, xhr);
+            console.log(xhr);
         }
     });
 }
@@ -120,15 +119,15 @@ function setCookie(cookieName, value, exdays){
 //      });
 // }
 //
-// function searchAll(){
-//     $.ajax({
-//         type:'post',
-//         url:NEXT_URL_NOT_WEB+'/list/result/all',
-//         contentType: "application/json; charset=UTF-8",
-//         success: function(result){
-//             console.log(result);
-//         }, error: function(result, err){
-//             console.log(err);
-//         }
-//     })
-// }
+function searchAll(){
+    $.ajax({
+        type:'post',
+        url:NEXT_URL_NOT_WEB+'/login/result/all',
+        contentType: "application/json; charset=UTF-8",
+        success: function(result){
+            console.log(result);
+        }, error: function(result, err){
+            console.log(err);
+        }
+    })
+}

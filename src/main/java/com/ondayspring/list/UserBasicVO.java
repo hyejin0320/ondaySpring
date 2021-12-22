@@ -6,6 +6,7 @@ public class UserBasicVO {
     private String userPassword;
     private String userRePassword;
     private int loginFailed;
+    private String firstMenuUrl;
 
     public String getUserId() {
         return userId;
@@ -45,5 +46,13 @@ public class UserBasicVO {
 
     public void setLoginFailed(int loginFailed) {
         this.loginFailed = loginFailed;
+    }
+
+    public String getFirstMenuUrl() {
+        return firstMenuUrl;
+    }
+
+    public void setFirstMenuUrl(String firstMenuUrl) {
+        this.firstMenuUrl = firstMenuUrl;
     }
 }

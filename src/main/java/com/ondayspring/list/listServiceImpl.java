@@ -13,12 +13,6 @@ public class listServiceImpl implements listService{
 
     public UserBasicVO getUser(UserBasicVO uservo) {
 
-        UserBasicVO loginResult = listdao.getUser(uservo);
-        TokenResponseVO response;
-
-        System.out.println("listServieImple -----------------");
-        System.out.println("userName : "+listdao.getUser(uservo).getUserName());
-
         return listdao.getUser(uservo);
     }
 
