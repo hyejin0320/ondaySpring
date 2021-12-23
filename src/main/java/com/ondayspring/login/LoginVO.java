@@ -1,19 +1,19 @@
-package com.ondayspring.list;
+package com.ondayspring.login;
 
-public class listVO {
+public class LoginVO {
     private int book_id;
     private String title;
     private String category;
     private int price;
     private String insert_date;
 
-    listVO() {}
+    LoginVO() {}
 
-    listVO(int book_id){
+    LoginVO(int book_id){
         this.book_id = book_id;
     }
 
-    public listVO(int book_id, String title, String category, int price, String insert_date){
+    public LoginVO(int book_id, String title, String category, int price, String insert_date){
         this.book_id = book_id;
         this.title = title;
         this.category = category;

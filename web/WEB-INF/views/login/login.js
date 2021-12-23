@@ -4,7 +4,7 @@ $(document).ready(function(){
     
     //input (id)에 포커싱
     $("#user-id").focus();
-    console.log("list.js -----> ");
+    console.log("login.js -----> ");
 
     //input에서 keydown이 발생할 경우, 엔터일 경우 id, pw 입력 input이 공백인지 검사
     $("#user-id").on( "keydown", function( event ) {
@@ -65,7 +65,32 @@ function login(userId, userPw){
         data:JSON.stringify(json),
         contentType:"application/json; charset=utf-8",
         success: function(result){
-            console.log(result);
+            if(result){
+                console.log(result);
+
+                var token = result.token;
+                var data = token.split('.')[1];
+                var libDecoded = Base64.decode(data);
+                var payload = JSON.parse(libDecoded);
+
+                console.log(token);
+                console.log(data);
+                console.log(libDecoded);
+                console.log(payload);
+
+                sessionStorage.setItem("token", token);
+                sessionStorage.setItem("userId", result.userId);
+                sessionStorage.setItem("userName", result.userName);
+
+                if(result.firstMenuUrl){
+                    console.log("url : "+location.protocol+"//"+location.host+result.firstMenuUrl);
+                }else{
+                    alert("이동할 메뉴 X");
+                }
+
+            }else{
+                console.log("nothing");
+            }
         },
         complete: function(result, xhr){
             console.log(xhr);

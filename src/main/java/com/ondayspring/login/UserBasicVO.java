@@ -1,4 +1,4 @@
-package com.ondayspring.list;
+package com.ondayspring.login;
 
 public class UserBasicVO {
     private String userId;
