@@ -2,15 +2,13 @@ package com.ondayspring.login;
 
 import com.ondayspring.common.workinglist.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-@Service("LoginService")
+@Service
 public class LoginServiceImpl implements LoginService{
-
-    LoginServiceImpl(){
-        System.out.println("LoginServiceImpl ---------------");
-    }
 
     @Autowired
     LoginDAO loginDAO;
@@ -18,10 +16,12 @@ public class LoginServiceImpl implements LoginService{
     @Autowired
     TokenService tokenService;
 
+    @Override
     public TokenResponseVO getUser(UserBasicVO uservo) {
-
         TokenResponseVO response = new TokenResponseVO();
         UserBasicVO userResult;
+        System.out.println("LoginServiceImpl ---------------");
+
         userResult = loginDAO.getUser(uservo);
 
         response.setUserId(userResult.getUserId());
@@ -32,10 +32,5 @@ public class LoginServiceImpl implements LoginService{
         response.setFirstMenuUrl(userResult.getFirstMenuUrl());
 
         return response;
-    }
-
-    @Override
-    public List<LoginVO> getAllContents() {
-        return loginDAO.getAllContents();
     }
 }

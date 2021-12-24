@@ -7,6 +7,4 @@ import java.util.List;
 @Mapper
 public interface LoginDAO {
     UserBasicVO getUser(UserBasicVO uservo);
-
-    List<LoginVO> getAllContents();
 }

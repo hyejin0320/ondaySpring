@@ -18,9 +18,4 @@ public class LoginController {
 
         return loginService.getUser(uservo);
     }
-
-    @PostMapping("/result/all")
-    public  List<LoginVO> searchAll() {
-        return loginService.getAllContents();
-    }
 }

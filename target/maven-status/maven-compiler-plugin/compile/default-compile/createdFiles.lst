@@ -4,10 +4,14 @@ com\ondayspring\login\TokenResponseVO.class
 com\ondayspring\list\ListController.class
 com\ondayspring\common\exception\BadRequestException.class
 com\ondayspring\login\UserBasicVO.class
+com\ondayspring\list\ListDAO.class
 com\ondayspring\login\LoginService.class
 com\ondayspring\common\workinglist\Constants.class
 com\ondayspring\login\LoginDAO.class
+com\ondayspring\list\ListService.class
 com\ondayspring\common\workinglist\Constants$Message.class
+com\ondayspring\list\ListServiceImpl.class
+com\ondayspring\common\annotation\Mapper.class
 com\ondayspring\login\LoginServiceImpl.class
 com\ondayspring\common\workinglist\Constants$Token.class
 com\ondayspring\login\LoginVO.class

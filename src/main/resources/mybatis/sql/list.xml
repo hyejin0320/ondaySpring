@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ondayspring.list.ListDAO">
+    <resultMap id="list" type="com.ondayspring.login.LoginVO">
+        <result column="book_id" property="book_id"/>
+        <result column="title" property="title"/>
+        <result column="category" property="category"/>
+        <result column="price" property="price"/>
+        <result column="insert_date" property="insert_date"/>
+    </resultMap>
+
+    <select id="getAllContents" resultMap="list">
+        SELECT
+                *
+        FROM
+                book
+    </select>
+
+</mapper>

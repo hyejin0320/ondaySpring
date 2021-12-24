@@ -147,7 +147,7 @@ function setCookie(cookieName, value, exdays){
 function searchAll(){
     $.ajax({
         type:'post',
-        url:NEXT_URL_NOT_WEB+'/login/result/all',
+        url:NEXT_URL_NOT_WEB+'/list/result',
         contentType: "application/json; charset=UTF-8",
         success: function(result){
             console.log(result);
