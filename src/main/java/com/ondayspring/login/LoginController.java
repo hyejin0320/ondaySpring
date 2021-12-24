@@ -12,12 +12,10 @@ public class LoginController {
     @Autowired
     LoginService loginService;
 
-    @Autowired
-    TokenService tokenService;
-
     @PostMapping("/login")
     public TokenResponseVO login(@RequestBody UserBasicVO uservo) {
         System.out.println("Controller----------------");
+
         return loginService.getUser(uservo);
     }
 

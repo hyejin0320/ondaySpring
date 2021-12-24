@@ -6,7 +6,7 @@ import com.ondayspring.common.workinglist.Constants;
 import org.springframework.stereotype.Service;
 import java.util.Date;
 
-@Service("TokenService")
+@Service
 public class TokenServiceImpl implements TokenService{
 
     @Override

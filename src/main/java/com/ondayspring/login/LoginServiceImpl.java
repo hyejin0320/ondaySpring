@@ -6,7 +6,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("LoginService")
-public class LoginServiceImpl implements LoginService {
+public class LoginServiceImpl implements LoginService{
+
+    LoginServiceImpl(){
+        System.out.println("LoginServiceImpl ---------------");
+    }
 
     @Autowired
     LoginDAO loginDAO;
@@ -16,11 +20,9 @@ public class LoginServiceImpl implements LoginService {
 
     public TokenResponseVO getUser(UserBasicVO uservo) {
 
-        System.out.println("LoginServiceImpl ---------------");
-
         TokenResponseVO response = new TokenResponseVO();
         UserBasicVO userResult;
-        userResult= loginDAO.getUser(uservo);
+        userResult = loginDAO.getUser(uservo);
 
         response.setUserId(userResult.getUserId());
         response.setUserName(userResult.getUserName());

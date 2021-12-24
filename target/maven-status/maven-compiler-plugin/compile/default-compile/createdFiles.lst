@@ -1,6 +1,7 @@
 com\ondayspring\login\TokenService.class
 com\ondayspring\login\LoginController.class
 com\ondayspring\login\TokenResponseVO.class
+com\ondayspring\list\ListController.class
 com\ondayspring\common\exception\BadRequestException.class
 com\ondayspring\login\UserBasicVO.class
 com\ondayspring\login\LoginService.class

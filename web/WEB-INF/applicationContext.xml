@@ -22,7 +22,7 @@
 
     <!-- mybatis mapper auto scanning -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ondayspring.*" />
+        <property name="basePackage" value="com.ondayspring" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
