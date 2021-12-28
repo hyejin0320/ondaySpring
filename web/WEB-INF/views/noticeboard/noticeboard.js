@@ -33,7 +33,7 @@ function validation(userId, userPw){
     }else if(!validateImoticon(userId) ){
         return false;
     }else{
-        login(userId, userPw);
+        noticeboard(userId, userPw);
         return true;
     }
 }
@@ -51,7 +51,7 @@ function validateImoticon(string){
 
 
 //login
-function login(userId, userPw){
+function noticeboard(userId, userPw){
     console.log(userId, userPw);
 
     var json = {
@@ -83,9 +83,9 @@ function login(userId, userPw){
                 sessionStorage.setItem("userName", result.userName);
 
                 if(result.firstMenuUrl){
-                    location.href=location.protocol+"//"+location.host+"/web"+result.firstMenuUrl;
+                    console.log("url : "+location.protocol+"//"+location.host+result.firstMenuUrl);
                 }else{
-                    alertPopup("이동 가능한 메뉴 없음");
+                    alert("이동할 메뉴 X");
                 }
 
             }else{

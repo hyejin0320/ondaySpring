@@ -1,8 +1,6 @@
 package com.ondayspring.login;
 
-import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
+import com.ondayspring.common.annotation.Mapper;
 
 @Mapper
 public interface LoginDAO {

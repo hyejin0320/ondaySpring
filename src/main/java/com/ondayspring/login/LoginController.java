@@ -10,11 +10,11 @@ import java.util.List;
 public class LoginController {
 
     @Autowired
-    LoginService loginService;
+    private LoginService loginService;
 
     @PostMapping("/login")
     public TokenResponseVO login(@RequestBody UserBasicVO uservo) {
-        System.out.println("Controller----------------");
+        System.out.println("LoginController----------------");
 
         return loginService.getUser(uservo);
     }

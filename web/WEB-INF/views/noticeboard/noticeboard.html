@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=1920,maximum-scale=1">-->
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <script type="text/ecmascript" src="../common/properties.js"></script>
+  <script type="text/ecmascript" src="../../libs/responsive.js"></script>
+  <script type="text/ecmascript" src="../../libs/base64.min.js"></script>
+  <script type="text/ecmascript" src="../../libs/jquery-3.3.1.min.js"></script>
+  <script type="text/ecmascript" src="noticeboard.js.js"></script>
+  <style>
+    body{
+      background-color: #F4F6F8;
+    }
+    h1{
+      padding:0;
+      margin:0;
+    }
+    .page-title{
+      display: inline-block;
+      font-size: 32px;
+      color: #262728;
+      font-weight: 700;
+    }
+    .item-right{
+      float:right;
+    }
+    .list-top{
+      width:1600px;
+      height: 83px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .popup-bg{
+      background-color: rgba(0,0,0, 0.5);
+      position:fixed;
+      top:0;
+      width:100%;
+      height:100%;
+      left:0;
+    }
+    #wrapper{
+      padding: 3rem;
+    }
+    .list-top span{
+      position: absolute;
+      font-size: 18px;
+      color: #888;
+      top:40px;
+    }
+    .list-btn-fixed{
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      background-color: #0367B0;
+      border:0;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      box-shadow: 0px 5px 20px rgba(0,0,0,.25);
+      font-size: 0px;
+    }
+    .nav-list{
+      position: fixed;
+      left:50px;
+      bottom:50px;
+      width:72px;
+      height:72px;
+      background-color: #F4F6F8;
+      border-radius: 50%;
+      box-shadow: 0px 5px 20px rgba(0,0,0,.25);
+      font-size: 0px;
+    }
+    .nav-list-img{
+      background-image: url('../../img/icon/ico_01.svg');
+      background-size: 32px 32px;
+    }
+    .board-pos-amount{
+      font-size: 20px;
+    }
+    .cc-blue{
+      color: #0367B0;
+    }
+    .head-area{
+      display: block;
+      height:1.6em;
+    }
+    .popup-area{
+      background-color: rgb(255,255,255);
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      width: 385px;
+      height:144px;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .popup-content{
+      padding:0;
+      margin:0;
+      text-align: center;
+      line-height: 2.7;
+    }
+    .popup-article{
+      padding: 0;
+      text-align: center;
+    }
+    .popup-confirm{
+      background-color: #0367B0;
+      border-radius: 40px;
+      padding: 10px 40px;
+      text-align: center;
+      color: white;
+      border: none;
+      width: 100px;
+      font-weight: bold;
+      cursor:pointer;
+    }
+    .popup-confirm:hover{
+      background-color: #02538d;
+    }
+    #login-area{
+      position: fixed;
+      top:50%;
+      left:50%;
+      width:20%;
+      transform: translate(-50%, -50%);
+    }
+    .login-form{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .btnSubmit{
+      background-color: #0367B0;
+      color:white;
+      padding: 16px 16px;
+      font-weight: bold;
+      border-radius: 40px;
+      min-width:234px;
+      border:none;
+      cursor: pointer;
+     }
+    .btnSubmit:hover{
+      background-color: #02538d;
+    }
+    .input-box{
+      padding: 16px 16px;
+      min-width:200px;
+      margin-bottom: 30px;
+      border: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+  <div class="nav-list">
+    <i class="nav-list-img"></i>
+  </div>
+    <section id="main-area">
+      <article class="main-head">
+          <h1 class="page-title">정보나눔터</h1>
+          <div class="item-right">
+            <div class="board-pos-amount">
+              <span>게시글</span> <b class="cc-blue"><strong></strong>개</b>
+            </div>
+          </div>
+        <div class="search-head"></div>
+        <div class="list-top">
+          <span style="left:40px">제목</span>
+          <span style="left:1110px">작성자</span>
+          <span style="left:1260px">작성일</span>
+          <span style="left:1490px">조회</span>
+        </div>
+      </article>
+      <section class="page-listing">
+        <button class="list-btn-fixed">글쓰기</button>
+      </section>
+      <section class="page-listing">
+        <div class="listing">
+          <div class="no-result-box">
+            <img src="../../img/icon/fig_noresult.png">
+            <p>등록된 내용이 없습니다.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+</div>
+<div class="popup-area-bg"></div>
+</body>
+</html>

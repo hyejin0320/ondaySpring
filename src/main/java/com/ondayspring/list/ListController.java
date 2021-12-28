@@ -1,6 +1,5 @@
 package com.ondayspring.list;
 
-import com.ondayspring.login.LoginService;
 import com.ondayspring.login.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +17,7 @@ public class ListController {
 
     @PostMapping("/result")
     public List<LoginVO> searchAll() {
+        System.out.println("ListController----------------");
         return listService.getAllContents();
     }
 }
