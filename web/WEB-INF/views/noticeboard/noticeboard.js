@@ -1,26 +1,15 @@
 var ctx;
 var canvas;
 $(document).ready(function(){
-    
-    //input (id)에 포커싱
-    $("#user-id").focus();
-    console.log("login.js -----> ");
+   getNoticeboard();
 
-    //input에서 keydown이 발생할 경우, 엔터일 경우 id, pw 입력 input이 공백인지 검사
-    $("#user-id").on( "keydown", function( event ) {
-        if(event.which==13){
-            enterKey();
-        }
-    });
+   $('.search-btn').click(function(){
+       var keyword = $('.search-box').val();
+      getNoticeboard(keyword);
+   });
 });
 
-//enter 키를 입력했을 경우
-function enterKey(){
-    var userId = $("#user-id").val().trim();
-    var userPw = $('#user-pw').val().trim();
 
-    validation(userId, userPw);
-}
 
 //id, pw가 공백인지 검사
 function validation(userId, userPw){
@@ -123,33 +112,32 @@ function setCookie(cookieName, value, exdays){
     document.cookie = cookieName+"="+cookieValue;
 }
 
-
-
-//
-//  var submitBookId = function(book_id){
-//
-//      var formData ={};
-//      formData.book_id = book_id;
-//      $.ajax({
-//          type: "POST",
-//          url: NEXT_URL_NOT_WEB+ "/list/result/"+book_id,
-//          data: JSON.stringify(formData),
-//          contentType: "application/json; charset=UTF-8",
-//          dataType:"json",
-//          success: function (result) {
-//              console.log(result);
-//          }, error:function(result, err){
-//              console.log(err);
-//         }
-//      });
-// }
-//
-function searchAll(){
+function getNoticeboard(keyword){
+    var key='';
+    if(keyword){
+        key=keyword;
+    }
+    console.log('getNoticeboard');
+    console.log(keyword);
     $.ajax({
         type:'post',
         url:NEXT_URL_NOT_WEB+'/list/result',
+        data : JSON.stringify(key),
         contentType: "application/json; charset=UTF-8",
         success: function(result){
+            if(result){
+                if(result.length>0){
+                    $('.no-result-box').remove();
+                    var html = '<ul class="content-list"></ul>';
+                    $('.page-listing').append(html);
+
+                    for(var i=0;i<result.length;i++){
+                        html = '<li class="content-list-one"><span class="lst-title">'+result[i].noticeTitle+'</span><span class="lst-name">'+result[i].userName+'</span><span class="lst-date">'+result[i].noticeDate+'</span><span class="lst-count">'+result[i].viewCount+'</span></li>';
+                        $('.content-list').append(html);
+                    }
+
+                }
+            }
             console.log(result);
         }, error: function(result, err){
             console.log(err);

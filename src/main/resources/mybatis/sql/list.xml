@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ondayspring.list.ListDAO">
-    <resultMap id="list" type="com.ondayspring.login.LoginVO">
-        <result column="book_id" property="book_id"/>
-        <result column="title" property="title"/>
-        <result column="category" property="category"/>
-        <result column="price" property="price"/>
-        <result column="insert_date" property="insert_date"/>
+    <resultMap id="list" type="com.ondayspring.list.ListVO">
+        <result column="noticeTitle" property="NOTICE_TITLE"/>
+        <result column="userName" property="USER_NM"/>
+        <result column="noticeDate" property="NOTICE_DATE"/>
+        <result column="viewCount" property="NOTICE_COUNT"/>
     </resultMap>
 
-    <select id="getAllContents" resultMap="list">
+    <select id="getAllContents" parameterType="java.lang.String" resultMap="list">
         SELECT
-                *
+               N.NOTICE_TITLE, U.USER_NM as USER_NAME, N.NOTICE_DATE, N.NOTICE_COUNT as VIEW_COUNT
         FROM
-                book
+             TB_NOTICE N,TB_USER_BAS U
+        WHERE
+              N.USER_ID=U.USER_ID
+              <if test='value!=null and value!=""'>
+                  AND (
+                  U.USER_NM LIKE CONCAT('%', #{value}, '%')
+                  OR N.NOTICE_TITLE LIKE CONCAT('%', #{value}, '%')
+                  )
+              </if>
     </select>
 
 </mapper>

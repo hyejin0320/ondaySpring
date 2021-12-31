@@ -1,6 +1,5 @@
 package com.ondayspring.list;
 
-import com.ondayspring.login.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +11,10 @@ public class ListServiceImpl implements ListService{
     ListDAO listDAO;
 
     @Override
-    public List<LoginVO> getAllContents() {
+    public List<ListVO> getAllContents(String keyword) {
         System.out.println("ListServiceImpl--------------------------");
+        System.out.println(keyword);
 
-        return listDAO.getAllContents();
+        return listDAO.getAllContents(keyword);
     }
 }
