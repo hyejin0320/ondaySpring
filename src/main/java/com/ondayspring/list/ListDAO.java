@@ -7,5 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface ListDAO {
-    List<ListVO> getAllContents(String value);
+    List<ListVO> getAllContents(ListSearchVO searchVO);
+    int getAllContentsCount(ListSearchVO searchVO);
 }

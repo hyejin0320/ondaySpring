@@ -113,32 +113,38 @@ function setCookie(cookieName, value, exdays){
 }
 
 function getNoticeboard(keyword){
-    var key='';
-    if(keyword){
-        key=keyword;
-    }
     console.log('getNoticeboard');
-    console.log(keyword);
     $.ajax({
         type:'post',
         url:NEXT_URL_NOT_WEB+'/list/result',
-        data : JSON.stringify(key),
+        data : JSON.stringify({keyword:keyword}),
         contentType: "application/json; charset=UTF-8",
         success: function(result){
-            if(result){
-                if(result.length>0){
-                    $('.no-result-box').remove();
-                    var html = '<ul class="content-list"></ul>';
-                    $('.page-listing').append(html);
 
-                    for(var i=0;i<result.length;i++){
-                        html = '<li class="content-list-one"><span class="lst-title">'+result[i].noticeTitle+'</span><span class="lst-name">'+result[i].userName+'</span><span class="lst-date">'+result[i].noticeDate+'</span><span class="lst-count">'+result[i].viewCount+'</span></li>';
-                        $('.content-list').append(html);
-                    }
+            //리스트 갱신
+            if(result.listContent.length!=0){
+                $('.board-pos-amount strong').html(result.listCnt);
 
+                $('.no-result-box').hide();
+                $('.content-list').show();
+
+                $('.content-list').html('');
+
+                for(var i in result.listContent){
+                    var item = result.listContent[i];
+
+                    html = '<li class="content-list-one">' +
+                        '<span class="lst-title">'+item.noticeTitle+'</span>' +
+                        '<span class="lst-name">'+item.userName+'</span>' +
+                        '<span class="lst-date">'+item.noticeDate+'</span>' +
+                        '<span class="lst-count">'+item.viewCount+'</span>' +
+                        '</li>';
+                    $('.content-list').append(html);
                 }
+            }else{
+                $('.content-list').hide();
+                $('.no-result-box').show();
             }
-            console.log(result);
         }, error: function(result, err){
             console.log(err);
         }

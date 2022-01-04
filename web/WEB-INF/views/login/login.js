@@ -1,14 +1,18 @@
 var ctx;
 var canvas;
 $(document).ready(function(){
+    initView();
+
+    sessionStorage.clear();
     
     //input (id)에 포커싱
     $("#user-id").focus();
     console.log("login.js -----> ");
 
-    //input에서 keydown이 발생할 경우, 엔터일 경우 id, pw 입력 input이 공백인지 검사
-    $("#user-id").on( "keydown", function( event ) {
-        if(event.which==13){
+    $('.input-box').keyup(function(){
+        //key property를 지원하지 않는 브라우저에서는 KeyCode=undefined 반환
+        var keyCode = event.key||event.KeyCode;
+        if(keyCode==13||keyCode=='Enter'){
             enterKey();
         }
     });

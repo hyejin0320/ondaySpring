@@ -1,0 +1,60 @@
+<header class="header">
+    <div class="head-inner">
+        <h1 class="h1-logo"><a href="/"><img src="../../../libs/images/logo_gnb.png" alt="redwood logo"/></a></h1>
+        <nav id="gnb" class="nav">
+            <ul class="main-menu">
+                <li id="liMnuService">
+                    <a href="/portal/intro/intro/intro.html">서비스 소개</a>
+                    <ul class="sub-menu">
+                        <li><a href="/portal/intro/intro/intro.html">PHR 서비스 소개</a></li>
+                        <li><a href="/portal/intro/notice/notice.html">공지사항</a></li>
+                    </ul>
+                </li>
+                <li id="liMnuSupport">
+                    <a href="/portal/support/guide/guide.html">개발지원</a>
+                    <ul class="sub-menu">
+                        <li><a href="/portal/support/guide/guide.html">개발자 가이드</a></li>
+                        <li><a href="/portal/support/qna/qna.html">문의하기</a></li>
+                    </ul>
+                </li>
+                <li id="liMnuRequest">
+                    <a href="/portal/request/platform/platform.html">이용신청</a>
+                    <ul class="sub-menu">
+                        <li><a href="/portal/request/platform/platform.html">플랫폼 이용신청</a></li>
+                        <li><a href="/portal/request/environment/environment.html">분석환경 이용신청</a></li>
+                        <li><a href="/portal/request/status/status.html">이용신청 현황</a></li>
+                    </ul>
+                </li>
+                <li id="liMnuServiceManager">
+                    <a href="/portal/service/manager/manager.html">서비스 관리</a>
+                    <ul class="sub-menu">
+                        <li><a href="/portal/service/manager/manager.html">서비스 관리</a></li>
+                        <li><a href="/portal/service/user/user.html">회원 관리</a></li>
+                        <li><a href="/portal/service/transaction/transaction.html">송수신 이력</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" style="" onclick="goMarket()">마켓</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="hd-userinfo" id="headerServiceLoginDiv">
+            <a href="/portal/service/login/login.html" class="top-logout">서비스 관리자 로그인</a>
+        </div>
+        <div class="hd-userinfo" id="headerServiceLogoutDiv">
+            <a href="/portal/service/manager/manager.html" class="top-user">
+                <b id="loginUserName" class="name">홍길동</b><span class="duties"></span>님
+            </a>
+            <a id="headerServiceLogoutBtn" class="top-logout login-userinfo" onclick="logout()">로그아웃</a>
+        </div>
+        <div class="hd-cert"><button type="button" class="bt-md bt-red" id="buttonPopupCreateYes"><span><a href="/MagicLine4Web/MagicMRSWeb/cert.html">공동 인증서 내보내기</a></span></button>
+            <select id="lang" onchange="if(this.value) location.href=(this.value)">
+                <option value="/portal/index.html">한국어</option>
+                <option value="https://en.redwoodhealth.kr/">English</option>
+            </select>
+        </div>
+    </div>
+    <div class="nav-bar">
+        <div class="barbg"></div>
+    </div>
+</header>

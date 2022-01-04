@@ -13,9 +13,10 @@ public class ListController {
     ListService listService;
 
     @PostMapping("/result")
-    public List<ListVO> searchAll(@RequestBody String keyword) {
+    public ListPageVO searchAll(@RequestBody ListSearchVO searchVO) {
         System.out.println("ListController----------------");
-        System.out.println(keyword);
-        return listService.getAllContents(keyword);
+        System.out.println(searchVO.getKeyword());
+
+        return listService.getAllContents(searchVO);
     }
 }

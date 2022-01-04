@@ -11,10 +11,15 @@ public class ListServiceImpl implements ListService{
     ListDAO listDAO;
 
     @Override
-    public List<ListVO> getAllContents(String keyword) {
+    public ListPageVO getAllContents(ListSearchVO searchVO) {
         System.out.println("ListServiceImpl--------------------------");
-        System.out.println(keyword);
+        System.out.println(searchVO.getKeyword());
 
-        return listDAO.getAllContents(keyword);
+        ListPageVO pageVO = new ListPageVO();
+
+        pageVO.setListContent(listDAO.getAllContents(searchVO));
+        pageVO.setListCnt(listDAO.getAllContentsCount(searchVO));
+
+        return pageVO;
     }
 }

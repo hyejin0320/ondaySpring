@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <!--<meta name="viewport" content="width=1920,maximum-scale=1">-->
-  <meta name="viewport" content="width=device-width">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
-  <script type="text/ecmascript" src="../common/properties.js"></script>
-  <script type="text/ecmascript" src="../../libs/responsive.js"></script>
-  <script type="text/ecmascript" src="../../libs/base64.min.js"></script>
-  <script type="text/ecmascript" src="../../libs/jquery-3.3.1.min.js"></script>
-  <script type="text/ecmascript" src="noticeboard.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <script type="text/ecmascript" src="../common/properties.js"></script>
+    <script type="text/ecmascript" src="../../libs/responsive.js"></script>
+    <script type="text/ecmascript" src="../../libs/base64.min.js"></script>
+    <script type="text/ecmascript" src="../../libs/jquery-3.3.1.min.js"></script>
+    <script type="text/ecmascript" src="noticeboard.js"></script>
+    <link rel="stylesheet"type="text/css" src="../../css/style-ui.css"/>
   <style>
     body{
       background-color: #F4F6F8;
@@ -60,6 +61,7 @@
       top:30px;
     }
     .list-btn-fixed{
+        cursor: pointer;
       position: fixed;
       bottom: 50px;
       right: 50px;
@@ -67,9 +69,13 @@
       border:0;
       width: 72px;
       height: 72px;
+        color: white;
+        font-weight: bold;
       border-radius: 50%;
       box-shadow: 0px 5px 20px rgba(0,0,0,.25);
-      font-size: 0px;
+    }
+    .list-btn-fixed:hover{
+        background-color: #02538d;
     }
     .nav-list{
       position: fixed;
@@ -119,6 +125,9 @@
     .content-list{
       margin-top: 16px;
     }
+    .content-list li{
+        cursor: pointer;
+    }
     .content-list-one{
       background-color:#fff;
       margin-bottom: 20px;
@@ -135,6 +144,7 @@
       width:230px;
     }
     .no-result-box{
+        display:none;
       position: absolute;
       top:265px;
       text-align: center;
@@ -162,6 +172,10 @@
       border: 1px solid #ddd;
       border-radius: 10px 0 0 10px;
     }
+    .search-box::placeholder{
+        font-size: 16px;
+        color: #ccc;
+    }
     .search-btn{
       font-size: 20px;
       position: absolute;
@@ -180,7 +194,7 @@
       background-color: #02538d;
     }
     .page-listing{
-      height:500px;
+      height:520px;
       overflow-y: scroll;
       overflow-x :hidden;
       -ms-overflow-style: none;
@@ -275,7 +289,7 @@
             </div>
           </div>
         <div class="search-head">
-          <input class="search-box" type="text" placeholder=""/>
+          <input class="search-box" type="text" placeholder="제목, 작성자"/>
           <input class="search-btn" type="button" value="검색"/>
         </div>
         <div class="list-top">
@@ -285,12 +299,18 @@
           <span style="left:1490px">조회</span>
         </div>
       </article>
-        <button class="list-btn-fixed">글쓰기</button>
       <section class="page-listing">
-          <div class="no-result-box">
-            <img src="../../img/icon/fig_noresult.png">
-            <p>등록된 내용이 없습니다.</p>
-          </div>
+
+<!--        등록된 글이 있을 경우-->
+        <ul class="content-list"></ul>
+
+<!--        등록된 글이 없을 경우-->
+        <div class="no-result-box">
+          <img src="../../img/icon/fig_noresult.png">
+          <p>등록된 내용이 없습니다.</p>
+        </div>
+
+        <button class="list-btn-fixed">글쓰기</button>
       </section>
     </section>
 </div>

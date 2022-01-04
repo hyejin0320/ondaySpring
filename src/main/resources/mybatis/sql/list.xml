@@ -8,19 +8,34 @@
         <result column="viewCount" property="NOTICE_COUNT"/>
     </resultMap>
 
-    <select id="getAllContents" parameterType="java.lang.String" resultMap="list">
+    <select id="getAllContents" parameterType="com.ondayspring.list.ListSearchVO" resultMap="list">
         SELECT
-               N.NOTICE_TITLE, U.USER_NM as USER_NAME, N.NOTICE_DATE, N.NOTICE_COUNT as VIEW_COUNT
+                N.NOTICE_TITLE, U.USER_NM as USER_NAME, N.NOTICE_DATE, N.NOTICE_COUNT as VIEW_COUNT
         FROM
              TB_NOTICE N,TB_USER_BAS U
         WHERE
               N.USER_ID=U.USER_ID
-              <if test='value!=null and value!=""'>
+              <if test='keyword!=null and keyword!=""'>
                   AND (
-                  U.USER_NM LIKE CONCAT('%', #{value}, '%')
-                  OR N.NOTICE_TITLE LIKE CONCAT('%', #{value}, '%')
+                  U.USER_NM LIKE CONCAT('%', #{keyword}, '%')
+                  OR N.NOTICE_TITLE LIKE CONCAT('%', #{keyword}, '%')
                   )
-              </if>
+             </if>
+    </select>
+
+    <select id="getAllContentsCount" parameterType="com.ondayspring.list.ListSearchVO" resultType="int">
+        SELECT
+        COUNT(N.NOTICE_TITLE)
+        FROM
+        TB_NOTICE N,TB_USER_BAS U
+        WHERE
+        N.USER_ID=U.USER_ID
+        <if test='keyword!=null and keyword!=""'>
+            AND (
+            U.USER_NM LIKE CONCAT('%', #{keyword}, '%')
+            OR N.NOTICE_TITLE LIKE CONCAT('%', #{keyword}, '%')
+            )
+        </if>
     </select>
 
 </mapper>
