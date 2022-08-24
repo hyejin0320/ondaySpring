@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="obj" transform="translate(-931 -948)">
+    <rect id="area" width="60" height="60" transform="translate(931 948)" fill="none"/>
+    <path id="타원_3" data-name="타원 3" d="M965.307,996.113a23.563,23.563,0,1,1,12.167-10.329c-4.009,5.229.185,8.875.185,8.875l8.837,8.837" transform="translate(1.027 1.027)" fill="none" stroke="#bbb" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+    <line id="Op_component_1" data-name="Op component 1" y2="10" transform="translate(958.527 966.457)" fill="none" stroke="#bbb" stroke-linecap="round" stroke-width="4"/>
+    <line id="Op_component_2" data-name="Op component 2" y2="1" transform="translate(958.527 982.637)" fill="none" stroke="#bbb" stroke-linecap="round" stroke-width="4"/>
+  </g>
+</svg>
